@@ -85,22 +85,7 @@ class SportsWalking(Training):
     CALORIES_SPEED_HEIGHT_MULTIPLIER: ClassVar[float] = 0.029
     KMH_IN_MSEC: ClassVar[float] = 0.278
     CM_IN_M: ClassVar[int] = 100
-
-    def __init__(self,
-                 action: int,
-                 duration: float,
-                 weight: float,
-                 height: int) -> float:
-        """Инициализировать SportsWalking(Training).
-
-        Аргументы:
-            action: Число шагов при ходьбе.
-            duration: Длительность тренировки.
-            weight: Вес спортсмена.
-            height: Рост спортсмена.
-        """
-        super().__init__(action, duration, weight)
-        self.height = height
+    height: int
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
@@ -120,25 +105,8 @@ class Swimming(Training):
     LEN_STEP: ClassVar[float] = 1.38
     CALORIES_MEAN_SPEED_SHIFT: ClassVar[float] = 1.1
     CALORIES_WEIGHT_MULTIPLIER: ClassVar[int] = 2
-
-    def __init__(self,
-                 action: int,
-                 duration: float,
-                 weight: float,
-                 length_pool: int,
-                 count_pool: int) -> float:
-        """Инициализировать Swimming(Training).
-
-        Аргументы:
-            action: Число шагов при ходьбе.
-            duration: Длительность тренировки.
-            weight: Вес спортсмена.
-            length_pool: Длина бассейна.
-            count_pool: Количество переплываний бассейна пользователем.
-        """
-        super().__init__(action, duration, weight)
-        self.length_pool = length_pool
-        self.count_pool = count_pool
+    length_pool: int
+    count_pool: int
 
     def get_mean_speed(self) -> float:
         """Получить среднюю скорость движения."""
